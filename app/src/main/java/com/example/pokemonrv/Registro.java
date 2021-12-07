@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,6 +22,9 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,12 +49,10 @@ public class Registro extends AppCompatActivity{
         registrar = findViewById(R.id.btnRegis);
         Login=findViewById(R.id.login2);
 
-        RequestQueue requestQueue = Singleton.getInstance(this).getPeticion();
-
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String postUrl = "http://3.144.213.232:80/api/auth/signup";
+                String postUrl = "http://3.144.213.232/api/auth/signup";
                 JSONObject postData = new JSONObject();
                 try {
                     postData.put("name",Usuario.getText().toString());
@@ -64,16 +67,26 @@ public class Registro extends AppCompatActivity{
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(Registro.this, "Registrado con Exito...", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Registro.this, MainActivity.class));
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Registro.this, "Error...", Toast.LENGTH_SHORT).show();
+                        Log.i("Mi error", error.toString());
                         error.printStackTrace();
                     }
-                });
-
-                requestQueue.add(jsonObjectRequest);
-                startActivity(new Intent(Registro.this, MainActivity.class));
+                }){
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> headers = new HashMap<String,String>();
+                        headers.put("X-Requested-With","XMLHttpRequest");
+                        headers.put("Content-Type","application/json");
+                        return headers;
+                    }
+                };
+                Singleton.getInstance(getApplicationContext()).addToRequestQue(jsonObjectRequest);
+//                startActivity(new Intent(Registro.this, MainActivity.class));
 
             }
         });

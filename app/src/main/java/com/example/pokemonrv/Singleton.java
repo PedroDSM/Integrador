@@ -2,22 +2,25 @@ package com.example.pokemonrv;
 
 import android.content.Context;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 public class Singleton {
     private static Singleton singleton;
-    private RequestQueue peticion;
+    private RequestQueue requestQueue;
+    private static Context ct;
 
-    private Singleton(Context context){ //obtiene el contexto de la aplicacion
-        peticion= Volley.newRequestQueue(context.getApplicationContext());
+    private Singleton(Context context){
+        this.ct=context;
+        this.requestQueue=getRequestQue();
     }
-
-    public RequestQueue getPeticion() // Este obtendra la peticion que hagamos a una api
-    {
-        return peticion;
+    public RequestQueue getRequestQue(){
+        if(requestQueue==null){
+            requestQueue = Volley.newRequestQueue(ct.getApplicationContext());
+        }
+        return requestQueue;
     }
-
     public static synchronized Singleton getInstance(Context context)
     {
         if(singleton==null)
@@ -25,5 +28,8 @@ public class Singleton {
             singleton = new Singleton(context);
         }
         return singleton;
+    }
+    public<T> void addToRequestQue(Request<T> request){
+        requestQueue.add(request);
     }
 }
