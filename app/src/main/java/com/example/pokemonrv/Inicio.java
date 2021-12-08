@@ -15,11 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokemonrv.Adaptadores.BabyAdapter;
 import com.example.pokemonrv.Intents.Distancia;
+import com.example.pokemonrv.Intents.LogOut;
 import com.example.pokemonrv.Intents.Movimiento;
 import com.example.pokemonrv.Intents.Puerta;
 import com.example.pokemonrv.Intents.Sonido;
 import com.example.pokemonrv.Intents.Temperatura;
 import com.example.pokemonrv.Modelos.Funciones;
+import com.example.pokemonrv.Splashes.SplashLogOut;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +55,7 @@ public class Inicio extends AppCompatActivity {
         menu.add(new Funciones("PROXIMIDAD", new Intent(this, Distancia.class), R.drawable.distancia));
         menu.add(new Funciones("MOVIMIENTO", new Intent(this, Movimiento.class), R.drawable.movimiento));
         menu.add(new Funciones("SONIDO", new Intent(this, Sonido.class), R.drawable.sonido));
-        menu.add(new Funciones("LOG OUT", new Intent(this, MainActivity.class), R.drawable.exit));
+        menu.add(new Funciones("LOG OUT", new Intent(this, SplashLogOut.class), R.drawable.exit));
 
         BabyAdapter BA = new BabyAdapter(menu);
         Recycler.setAdapter(BA);

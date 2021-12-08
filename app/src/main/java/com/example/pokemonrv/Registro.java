@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.pokemonrv.Splashes.SplashRegister;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -74,13 +75,13 @@ public class Registro extends AppCompatActivity{
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(Registro.this, "Registrado con Exito...", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Registro.this, MainActivity.class));
+                        Toast.makeText(getApplicationContext(), "Registrado con Exito...", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Registro.this, SplashRegister.class));
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Registro.this, "Error...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error...", Toast.LENGTH_SHORT).show();
                         Log.i("Mi error", error.toString());
                         error.printStackTrace();
                     }

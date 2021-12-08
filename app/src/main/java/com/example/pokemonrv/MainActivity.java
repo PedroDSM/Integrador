@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     postData.put("email", Mail.getText().toString());
                     postData.put("password", Password.getText().toString());
+                    postData.put("remember_me", true);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -70,8 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, "Error Username or Password are Incorrect", Toast.LENGTH_SHORT).show();
-                        if(Mail.getText().toString().isEmpty()){
+                        if(Mail.getText().toString().isEmpty() && Password.getText().toString().isEmpty()){
+                            Toast.makeText(MainActivity.this, "Error Username or Password are Incorrect", Toast.LENGTH_SHORT).show();
+                        }
+                        else if(Mail.getText().toString().isEmpty()){
                             Toast.makeText(MainActivity.this, "Email Field Empty", Toast.LENGTH_SHORT).show();
                         }else if(Password.getText().toString().isEmpty()){
                             Toast.makeText(MainActivity.this, "Password field Empty", Toast.LENGTH_SHORT).show();
@@ -83,14 +86,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public Map<String, String> getHeaders() throws AuthFailureError {
                         HashMap<String, String> headers = new HashMap<String, String>();
-                        headers.put("X-Requested-With", "XMLHttpRequest");
                         headers.put("Content-Type", "application/json");
                         return headers;
                     }
                 };
                 Singleton.getInstance(getApplicationContext()).addToRequestQue(jsonObjectRequest);
-//                startActivity(new Intent(Registro.this, MainActivity.class));
-
             }
         });
     }
