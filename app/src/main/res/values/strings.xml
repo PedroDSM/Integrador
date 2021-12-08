@@ -2,6 +2,13 @@
     <string name="app_name">PokemonRV</string>
     <string name="inicio">Iniciar Sesion</string>
     <string name="reg">Registrate</string>
+    <string name="puerta">Puerta</string>
+    <string name="estadistica">Estadistica</string>
+    <string name="estado">estado</string>
+    <string name="fecha2">fecha2</string>
+    <string name="fecha1">fecha1</string>
+    <string name="hora2">hora1</string>
+    <string name="hora1">hora1</string>
 
 
 </resources>
