@@ -1,6 +1,7 @@
 package com.example.pokemonrv;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CompoundButton;
@@ -47,6 +48,16 @@ public class Inicio extends AppCompatActivity {
         Recycler.setLayoutManager(new GridLayoutManager(this, 2));
         aSwitch = findViewById(R.id.door);
         titulo = findViewById(R.id.Title);
+
+
+        SharedPreferences preferencias = getPreferences(MODE_PRIVATE);
+
+        String nombre = preferencias.getString("token",  "valor defecto");
+
+
+
+
+
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

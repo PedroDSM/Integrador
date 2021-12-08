@@ -68,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent in = new Intent(MainActivity.this, Inicio.class);
                         try {
                             in.putExtra("token", response.getString("access_token"));
-                            SharedPreferences prefs =
-                                    getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+                            SharedPreferences prefs = (SharedPreferences) getPreferences(MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("token", response.getString("access_token"));
+                            editor.commit();
 
-                            SharedPreferences.Editor editor;
 
                         } catch (JSONException e) {
                             e.printStackTrace();
