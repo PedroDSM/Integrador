@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_destadisticas.xml" value="0.18" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_distancia.xml" value="0.33" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_movimiento.xml" value="0.1" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_registro.xml" value="0.1" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_splashh.xml" value="0.2" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/activity_temperatura.xml" value="0.1" />
+        <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/destadisticas.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/inicio.xml" value="0.22" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/loregistro.xml" value="0.18" />
         <entry key="..\:/Users/pedro/Downloads/PokemonRV/PokemonRV/app/src/main/res/layout/recycler.xml" value="0.33" />

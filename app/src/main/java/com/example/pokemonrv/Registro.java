@@ -48,6 +48,14 @@ public class Registro extends AppCompatActivity{
         Contarseña = findViewById(R.id.Passw);
         registrar = findViewById(R.id.btnRegis);
         Login=findViewById(R.id.login2);
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.getId()==R.id.login2){
+                    startActivity(new Intent(Registro.this,MainActivity.class));
+                }
+            }
+        });
 
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
