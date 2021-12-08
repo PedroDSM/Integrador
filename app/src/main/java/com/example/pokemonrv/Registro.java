@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -35,7 +36,8 @@ public class Registro extends AppCompatActivity{
     EditText Usuario;
     EditText Contarseña;
     EditText Correo;
-
+    TextView titulo;
+    private String token;
 
 
     @Override
@@ -48,6 +50,7 @@ public class Registro extends AppCompatActivity{
         Contarseña = findViewById(R.id.Passw);
         registrar = findViewById(R.id.btnRegis);
         Login=findViewById(R.id.login2);
+        titulo=findViewById(R.id.Rg);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,5 +101,12 @@ public class Registro extends AppCompatActivity{
 
             }
         });
+    }
+
+    public String getToken() {
+        return token;
+    }
+    public void setToken(String token) {
+        this.token = token;
     }
 }

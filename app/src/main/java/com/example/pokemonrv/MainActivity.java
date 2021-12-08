@@ -3,12 +3,12 @@ package com.example.pokemonrv;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -65,7 +65,21 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(MainActivity.this, "Login Succesfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, Inicio.class));
+                        Intent in = new Intent(MainActivity.this, Inicio.class);
+                        try {
+                            in.putExtra("token", response.getString("access_token"));
+                            SharedPreferences prefs =
+                                    getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+
+                            SharedPreferences.Editor editor;
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        finish();
+                        startActivity(in);
+
                     }
                 }, new Response.ErrorListener() {
                     @Override

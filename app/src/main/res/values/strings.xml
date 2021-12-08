@@ -9,6 +9,9 @@
     <string name="fecha1">fecha1</string>
     <string name="hora2">hora1</string>
     <string name="hora1">hora1</string>
+    <string name="contrasena">Contrasena</string>
+    <string name="correo">Correo</string>
+    <string name="iniciar_sesion">INICIAR SESION</string>
 
 
 </resources>
