@@ -36,7 +36,6 @@ public class Registro extends AppCompatActivity{
     EditText Usuario;
     EditText Contarseña;
     EditText Correo;
-    TextView titulo;
     private String token;
 
 
@@ -50,7 +49,6 @@ public class Registro extends AppCompatActivity{
         Contarseña = findViewById(R.id.Passw);
         registrar = findViewById(R.id.btnRegis);
         Login=findViewById(R.id.login2);
-        titulo=findViewById(R.id.Rg);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

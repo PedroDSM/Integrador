@@ -49,10 +49,12 @@ public class Inicio extends AppCompatActivity {
         aSwitch = findViewById(R.id.door);
         titulo = findViewById(R.id.Title);
 
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
 
-        SharedPreferences preferencias = getPreferences(MODE_PRIVATE);
+        String   nombre =preferences.getString("Nombre","");
+        int   edad =preferences.getInt("Edad",0);
+        titulo.setText("El nombre es: "+nombre);
 
-        String nombre = preferencias.getString("token",  "valor defecto");
 
 
 

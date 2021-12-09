@@ -68,10 +68,13 @@ public class MainActivity extends AppCompatActivity {
                         Intent in = new Intent(MainActivity.this, Inicio.class);
                         try {
                             in.putExtra("token", response.getString("access_token"));
-                            SharedPreferences prefs = (SharedPreferences) getPreferences(MODE_PRIVATE);
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("token", response.getString("access_token"));
-                            editor.commit();
+                            //SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
+                            //mPrefs.putString("token",response.toString());
+                            SharedPreferences prefs= getSharedPreferences("MySp",MODE_PRIVATE) ;
+                            // SharePreferences en sí no admite el almacenamiento y la modificación, debe operarse a través del objeto Editor
+                            // editar se utiliza para agregar, eliminar, modificar y consultar datos
+                            prefs.edit().putString("token", response.getString("token") );
+                            prefs.edit().apply();
 
 
                         } catch (JSONException e) {
