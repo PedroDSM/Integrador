@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ff"
+    tools:context=".Intents.Temperatura"
+    android:padding="20sp">
+
+    <TextView
+        android:id="@+id/tituloInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BABYCARE TEMPERATURE"
+        android:textAlignment="center"
+        android:textColor="#016564"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tx"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:hint="00"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="80sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="3.5"
+        android:id="@+id/temperaturas"/>
+
+</LinearLayout>
