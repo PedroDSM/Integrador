@@ -7,7 +7,7 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/tituloInicio"
         android:layout_width="295dp"
         android:layout_height="51dp"
         android:text="BABY CARE"

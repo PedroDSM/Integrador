@@ -2,8 +2,11 @@ package com.example.pokemonrv;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -62,11 +65,24 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
+                        postUrl,
+                        postData,
+                        new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(MainActivity.this, "Login Succesfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, Inicio.class));
+                        Intent in = new Intent(MainActivity.this, Inicio.class);
+                        try {
+                            MainActivity.setDefaultsPreference("token",response.getString("access_token"),view.getContext());
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        finish();
+                        startActivity(in);
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -78,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Email Field Empty", Toast.LENGTH_SHORT).show();
                         }else if(Password.getText().toString().isEmpty()){
                             Toast.makeText(MainActivity.this, "Password field Empty", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "Error de conexión", Toast.LENGTH_SHORT).show();
                         }
                         Log.i("Mi error", error.toString());
                         error.printStackTrace();
@@ -93,5 +112,17 @@ public class MainActivity extends AppCompatActivity {
                 Singleton.getInstance(getApplicationContext()).addToRequestQue(jsonObjectRequest);
             }
         });
+    }
+
+    private static void setDefaultsPreference(String token, String t, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(token, t);
+        editor.apply();
+    }
+
+    public static String getDefaultsPreference(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString(key, null);
     }
 }

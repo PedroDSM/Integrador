@@ -23,6 +23,7 @@ public class splashh extends AppCompatActivity  {
             @Override
             public void onFinish() {
 
+                finish();
                 startActivity(new Intent(splashh.this, MainActivity.class));
 
             }
