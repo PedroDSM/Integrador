@@ -5,41 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Intents.Temperatura">
-
-    <Button
-        android:id="@+id/btnsendData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ON" />
-
-    <Button
-        android:id="@+id/btnsend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OFF" />
-
-    <Button
-        android:id="@+id/get"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Temperatura" />
+    tools:context=".Intents.Temperatura"
+    android:padding="20sp">
 
     <TextView
         android:id="@+id/tx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
         android:hint="00"
+        android:layout_weight="1"
+        android:textAlignment="center"
         android:textSize="80sp" />
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="400sp"
-        app:layout_constraintBottom_toTopOf="@+id/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_height="0sp"
+        android:layout_weight="3.5"
+        android:id="@+id/temperaturas"/>
 
 </LinearLayout>
